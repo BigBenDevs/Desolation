@@ -11,19 +11,17 @@ class CfgPatches
 };
 class CfgFunctions {
 	init = "PluginManager\initFunctions.sqf";
-	class Base {
-		class Events {
-			file = "Events";
-			//--- KeyDown
-			addKeybind {};
-			removeKeybind {};
-			//--- HanldeDamage
-			addHandleDamageEvent {};
-			removeHandleDamageEvent {};
-			
-		};
+	class BASE {
 		class Functions {
 			file = "Functions";
+			class preInit {
+				preInit = 1;
+			};			
+			class compileCfg {};
+			class setupEvents {};
+			class start {
+				preInit = 1;
+			};
 		};
 	};
 };

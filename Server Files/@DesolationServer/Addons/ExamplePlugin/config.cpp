@@ -8,19 +8,21 @@ class Plugins
 	{
 		name = "Anti SideChat";
 		desc = "Prevents people from using VOIP in Global and Side chats";
+		tag = "ASC";
 	};
 }
 class CfgFunctions
 {
-	class Plugin
+	class ASC
 	{
-		class AntiSideChat
+		class Client
 		{
-			tag = "ASC";
-			class initClient {
-				target = 0; //--- client (0 = client, 1 = server, 2 = both)
-				file = "fn_initClient.sqf";
-			};
+			isclient = 1;
+			class initClient {};
+		};
+		class Server 
+		{
+			isserver = 1;
 		};
 	};
 };

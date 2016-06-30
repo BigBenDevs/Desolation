@@ -216,10 +216,13 @@ RscDisplayLoading_progressMission = nil;
 private ["_functions_list","_functions_listPreInit","_functions_listPostInit","_functions_listPreStart","_functions_listRecompile","_file","_cfgSettings","_listConfigs","_recompileNames"];
 
 _functions_listPreStart = [];
+_functions_forclients = call (uinamespace getvariable ["BASE_clientfunctions_list",{[]}]);
+_functions_forserver = call (uinamespace getvariable ["BASE_serverfunctions_list",{[]}]);
 _functions_list = call (uinamespace getvariable ["bis_functions_list",{[]}]);
 _functions_listPreInit = [call (uinamespace getvariable ["bis_functions_listPreInit",{[]}]),[]];
 _functions_listPostInit = [call (uinamespace getvariable ["bis_functions_listPostInit",{[]}]),[]];
 _functions_listRecompile = call (uinamespace getvariable ["bis_functions_listRecompile",{[]}]);
+
 
 //--- When not forced, recompile only mission if uiNamespace functions exists
 if (typename _recompile != typename 1) then {
@@ -336,6 +339,9 @@ for "_t" from 0 to (count _listConfigs - 1) do {
 						_categoryName = configname _currentCategory;
 						_itemPathCat = gettext (_currentCategory >> "file");
 
+						_isclient = getNumber(_currentCategory >> "isclient");
+						_isserver = getNumber(_currentCategory >> "isserver");
+						
 						for "_n" from 0 to (count _currentCategory - 1) do {
 							private ["_currentItem"];
 							_currentItem = _currentCategory select _n;
@@ -403,6 +409,18 @@ for "_t" from 0 to (count _listConfigs - 1) do {
 										if (_pathAccess == 0) then {_functions_list set [count _functions_list,_itemVar];};
 									};
 
+									//--- Add to a list of functions to be streamed to the client
+									if(_isclient > 0) then {
+										if !(_itemVar in _functions_forclients) then {
+											_functions_forclients set [count(_functions_forclients), _itemVar];
+										};
+									};
+									if(_isserver > 0) then {
+										if !(_itemVar in _functions_forserver) then {
+											_functions_forserver set [count(_functions_forserver), _itemVar];
+										};
+									};
+									
 									//--- Add to list of functions executed upon mission start
 									if (_itemPreInit > 0) then {
 										_functions_listPreInitAccess = _functions_listPreInit select _pathAccess;
@@ -442,13 +460,6 @@ for "_t" from 0 to (count _listConfigs - 1) do {
 											if !(isnil {_errorFnc}) then {[_errorText,_itemVar] call _errorFnc;} else {diag_log format ["Log: [Functions]: " + _errorText,_itemVar];};
 										};
 									};
-
-									//if (_itemRecompile > 0) then {
-									//	_functions_listRecompileAccess = _functions_listRecompile select _pathAccess;
-									//	_functions_listRecompileAccess set [count _functions_listRecompileAccess,_itemVar];
-									//};
-									//--- Debug
-									//debuglog ["Log:::::::::::::::::::Function",_itemVar,_itemPath,_pathAccess];
 								};
 							};
 						};
@@ -460,6 +471,8 @@ for "_t" from 0 to (count _listConfigs - 1) do {
 };
 
 //--- Save the lists
+uinamespace setvariable ["BASE_clientfunctions_list", compilefinal str (_functions_forclients)];
+uinamespace setvariable ["BASE_serverfunctions_list", compilefinal str (_functions_forserver)];
 uinamespace setvariable ["BIS_functions_list",compileFinal str (_functions_list)];
 uinamespace setvariable ["BIS_functions_listPreInit",compileFinal str (_functions_listPreInit select 0)];
 uinamespace setvariable ["BIS_functions_listPostInit",compileFinal str (_functions_listPostInit select 0)];
@@ -534,14 +547,16 @@ if (_recompile == 3) then {
 		if (_test || _test2) then {0 call (compile (preprocessFileLineNumbers "a3\functions_f\misc\fn_initCounter.sqf"))};
 	};
 
-	//--- Recompile selected functions
+	
 	if ((count (supportInfo "n:is3DEN") > 0 && {!is3DEN}) || (count (supportInfo "n:is3DEN") == 0)) then {
+		
+		//--- Recompile selected functions
 		_fnc_scriptname = "recompile";
 		{
 			["recompile %1",_x] call bis_fnc_logFormat;
 			_x call bis_fnc_recompile;
 		} foreach _functions_listRecompile;
-
+		
 		//--- Call preInit functions
 		_fnc_scriptname = "preInit";
 		{
@@ -549,7 +564,7 @@ if (_recompile == 3) then {
 				_time = diag_ticktime;
 				[_x]call {
 					private ["_recompile","_functions_list","_functions_listPreInit","_functions_listPostInit","_functions_listRecompile","_time"];
-					["preInit"] call (missionnamespace getvariable (_this select 0))
+					["preInit", _functions_forclients,_functions_forserver] call (missionnamespace getvariable (_this select 0))
 				};
 				["%1 (%2 ms)",_x,(diag_ticktime - _time) * 1000] call bis_fnc_logFormat;
 			} foreach _x;

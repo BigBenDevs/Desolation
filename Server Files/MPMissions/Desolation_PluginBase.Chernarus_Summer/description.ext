@@ -49,6 +49,8 @@ class CfgFunctions
 			class receiveFunctions {};
 			class receiveProgressData {};
 			class timeoutCheck {};
+			class start {};
+			class addEvents {};
 		};
 	};
 };
