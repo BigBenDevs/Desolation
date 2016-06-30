@@ -1,0 +1,1 @@
+5 "" !"Shot" !"B_Soldier_F" !"GG_M1_Garand_Clip" !"B_Soldier_F"

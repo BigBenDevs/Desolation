@@ -1,0 +1,163 @@
+author = "OPTiX";
+enableDebugConsole = 1;
+onLoadName = "Desolation";
+onLoadMission = "Desolation Alpha";
+joinUnassigned = false;
+disabledAI = true;
+disableChannels[]={0,2,3,6};
+corpseManagerMode = 3;
+respawnDialog = 0;
+respawn = 3;
+respawnDelay = 70;
+class Header
+{
+	gameType = RPG;
+	minPlayers = 1;
+	maxPlayers = 60;
+};
+
+wreckLimit = 3000;
+wreckRemovalMinTime = 5000;
+wreckRemovalMaxTime = 5000;
+corpseLimit = 1000;
+corpseRemovalMinTime = 20;
+corpseRemovalMaxTime = 25;
+debriefing = 0;
+
+onPauseScript[] = {dz_fnc_onPauseSave};
+
+
+showHUD[] = {
+	true,	// Scripted HUD (same as showHUD command)
+	false,	// Vehicle + soldier info
+	false,	// Vehicle radar [HIDDEN]
+	false,	// Vehicle compass [HIDDEN]
+	false,	// Tank direction indicator
+	true,	// Commanding menu
+	false,	// Group Bar
+	true	// HUD Weapon Cursors
+};
+
+
+class CfgFunctions
+{
+	#include "functions.h"
+};
+
+// Dialogs
+#include "dialogs_common.hpp"
+#include "dialogs_playermenu.hpp"
+#include "dialogs_titles.hpp"
+
+class CfgDebriefing
+{
+	class EXIT
+	{
+		title = "DESOLATION";
+		subtitle = "Thank you for playing the Desolation Pre-Alpha";
+		description = "";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+	class SIDECHAT
+	{
+		title = "DESOLATION";
+		subtitle = "Thank you for playing the Desolation Pre-Alpha";
+		description = "You have been removed for talking in side chat, your character has been killed and saved to the database!";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+	class BUGGEDDATA
+	{
+		title = "DESOLATION";
+		subtitle = "Thank you for playing the Desolation Pre-Alpha";
+		description = "We have detected an error while loading your character, please head back to the lobby and rejoin!";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+	class OUTDATEDATA
+	{
+		title = "DESOLATION";
+		subtitle = "Thank you for playing the Desolation Pre-Alpha";
+		description = "We have detected outdated files on your client. Please verify your files and/or redownload them.";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+	class NOTUPTODATE
+	{
+		title = "DESOLATION";
+		subtitle = "INVALID DATA";
+		description = "You are not running the newest build of Taviana. If you are using the Workshop version of Desolation please make sure you are running 'DESOLATION MOD' and not 'DESOLATION'. If you still encounter this error please delete Desolation completely and redownload it.";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+	class NOTLOADED
+	{
+		title = "DESOLATION";
+		subtitle = "DATA NOT RECEIVED";
+		description = "We are not able to load your character from the database. Please try rejoining the game. If you still encounter this error please rename your profile and only use characters A-Z and 0-9.";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+	class DEAD
+	{
+		title = "DESOLATION";
+		subtitle = "Thank you for playing the Desolation Pre-Alpha";
+		description = "You have died. Please return to the lobby and join again in order to respawn!";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+};
+
+class CfgMusic
+{
+	tracks[]={};
+
+	class intro_track2
+	{
+		name = "";
+		sound[] = {"\DayZero\tracks\intro.ogg", db+1, 1.0};
+	};
+};
+
+class CfgSounds
+{
+	sounds[] = {};
+	class abnt_0
+	{
+		name = "abnt_0";
+		sound[] = {"\sounds\0.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class abnt_1
+	{
+		name = "abnt_1";
+		sound[] = {"\sounds\1.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class abnt_2
+	{
+		name = "abnt_2";
+		sound[] = {"\sounds\2.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class abnt_3
+	{
+		name = "abnt_3";
+		sound[] = {"\sounds\3.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class abnt_4
+	{
+		name = "abnt_4";
+		sound[] = {"\sounds\4.ogg", 1.0, 1};
+		titles[] = {};
+	};
+};
