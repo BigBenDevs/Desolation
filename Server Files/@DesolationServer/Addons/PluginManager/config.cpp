@@ -9,19 +9,38 @@ class CfgPatches
 		author[]= {"Kegan"};
 	};
 };
+class Plugins
+{
+	class PluginManager
+	{
+		name = "Plugin Manager";
+		desc = "Master PBO for handling plugins";
+		tag = "BASE";
+	};
+}
 class CfgFunctions {
 	init = "PluginManager\initFunctions.sqf";
-	class BASE {
-		class Functions {
+	class BASE 
+	{
+		class Functions 
+		{
 			file = "Functions";
-			class preInit {
+			class preInit 
+			{
 				preInit = 1;
 			};			
 			class compileCfg {};
 			class setupEvents {};
-			class start {
+			class start 
+			{
 				preInit = 1;
 			};
+		};
+		class Client 
+		{
+			isclient = 1;
+			file = "Client";
+			class getCfgValue {};
 		};
 	};
 };
