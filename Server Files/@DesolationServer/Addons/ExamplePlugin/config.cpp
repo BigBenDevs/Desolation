@@ -17,7 +17,10 @@ class CfgFunctions
 		class AntiSideChat
 		{
 			tag = "ASC";
-			class initClient {file = "fn_initClient.sqf";};
+			class initClient {
+				target = 0; //--- client (0 = client, 1 = server, 2 = both)
+				file = "fn_initClient.sqf";
+			};
 		};
 	};
 };
