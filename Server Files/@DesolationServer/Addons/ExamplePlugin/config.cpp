@@ -1,6 +1,14 @@
 class CfgPatches
 {
 	class AntiSideChat {};
+};
+class Plugins
+{
+	class AntiSideChat
+	{
+		name = "Anti SideChat";
+		desc = "Prevents people from using VOIP in Global and Side chats";
+	};
 }
 class CfgFunctions
 {
