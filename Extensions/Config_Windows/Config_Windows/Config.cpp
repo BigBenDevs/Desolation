@@ -101,7 +101,7 @@ Config::Config(const char* input)
 }
 const char* Config::getResponse() 
 {
-	string response = "[";
+	this->response = "[";
 	if (this->function == "GetCfgFile")
 	{
 		vector<keyPair*> values = parseCfg(this->param);
@@ -110,14 +110,14 @@ const char* Config::getResponse()
 		for (keyPair* &value : values)
 		{
 			if (i != 0) {
-				response.append(",");
+				this->response.append(",");
 			}
 
-			response.append("[\""); //["
-			response.append(value->key);
-			response.append("\",\""); // ","
-			response.append(value->value);
-			response.append("\"]"); //"]
+			this->response.append("[\""); //["
+			this->response.append(value->key);
+			this->response.append("\",\""); // ","
+			this->response.append(value->value);
+			this->response.append("\"]"); //"]
 			i++;
 		}
 	}
@@ -129,14 +129,15 @@ const char* Config::getResponse()
 		for (string &value : values)
 		{
 			if (i != 0) {
-				response.append(",");
+				this->response.append(",");
 			}
-			response.append("\"");
-			response.append(value);
-			response.append("\"");
+			this->response.append("\"");
+			this->response.append(value);
+			this->response.append("\"");
 			i++;
 		}
 	}
-	response.append("]");
-	return response.c_str();
+	this->response.append("]");
+	
+	return this->response.c_str();
 }

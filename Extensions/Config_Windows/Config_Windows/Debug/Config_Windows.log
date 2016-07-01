@@ -1,9 +1,4 @@
 ﻿  Main.cpp
 c:\users\kegan\documents\github\desolation\extensions\config_windows\config_windows\main.cpp(26): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-  Config.cpp
-c:\users\kegan\documents\github\desolation\extensions\config_windows\config_windows\config.cpp(26): warning C4244: 'argument': conversion from 'std::streamoff' to 'unsigned int', possible loss of data
-  Generating Code...
-  LINK : C:\Users\kegan\Documents\GitHub\Desolation\Extensions\Config_Windows\Debug\Config_Windows.dll not found or not built by the last incremental link; performing full link
-     Creating library C:\Users\kegan\Documents\GitHub\Desolation\Extensions\Config_Windows\Debug\Config_Windows.lib and object C:\Users\kegan\Documents\GitHub\Desolation\Extensions\Config_Windows\Debug\Config_Windows.exp
   Config_Windows.vcxproj -> C:\Users\kegan\Documents\GitHub\Desolation\Extensions\Config_Windows\Debug\Config_Windows.dll

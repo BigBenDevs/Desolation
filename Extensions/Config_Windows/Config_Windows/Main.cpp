@@ -24,4 +24,5 @@ void __stdcall RVExtension(char *output, int outputSize, const char *function)
 	outputSize -= 1;
 	Config* cfg = new Config(function);
 	strncpy(output, cfg->getResponse(), outputSize);
+	delete cfg;
 }

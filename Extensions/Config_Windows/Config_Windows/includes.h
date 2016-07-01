@@ -64,6 +64,7 @@ private:
 	string in;
 	string param;
 	string function;
+	string response;
 
 	vector<string> split(string str, char delimiter);
 	vector<keyPair*> parseCfg(string fileName);
