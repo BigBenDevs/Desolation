@@ -1,4 +1,6 @@
 DesolationREDUX
+
+Original code created by OPTiX
 =============
 
 DesolationREDUX is the spiritual successor to Arma 3 DesolationMOD.  A heavily modified version of the original 
