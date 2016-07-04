@@ -24,7 +24,7 @@ class CfgFunctions {
 	{
 		class Functions 
 		{
-			file = "Functions";
+			file = "PluginManager\Functions";
 			class preInit 
 			{
 				preInit = 1;
@@ -39,7 +39,7 @@ class CfgFunctions {
 		class Client 
 		{
 			isclient = 1;
-			file = "Client";
+			file = "PluginManager\Client";
 			class getCfgValue {};
 		};
 	};

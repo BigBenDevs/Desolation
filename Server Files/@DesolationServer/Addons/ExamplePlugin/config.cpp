@@ -17,11 +17,13 @@ class CfgFunctions
 	{
 		class Client
 		{
+			file = "ExamplePlugin\Client";
 			isclient = 1;
 			class initClient {};
 		};
 		class Server 
 		{
+			file = "ExamplePlugin\Server";
 			isserver = 1;
 		};
 	};
