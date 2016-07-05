@@ -1,18 +1,5 @@
 #include "includes.h"
 
-BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
-{
-	switch (ul_reason_for_call)
-	{
-	case DLL_PROCESS_ATTACH:
-	case DLL_THREAD_ATTACH:
-	case DLL_THREAD_DETACH:
-	case DLL_PROCESS_DETACH:
-		break;
-	}
-	return TRUE;
-}
-
 extern "C"
 {
 	__declspec(dllexport) void __stdcall RVExtension(char *output, int outputSize, const char *function);
@@ -22,7 +9,11 @@ extern "C"
 void __stdcall RVExtension(char *output, int outputSize, const char *function)
 {
 	outputSize -= 1;
-	Config* cfg = new Config(function);
-	strncpy(output, cfg->getResponse(), outputSize);
-	delete cfg;
+	marshal_context^ context = gcnew marshal_context();
+	String^ ext_in = marshal_as<String^>(function);
+	
+	String^ ext_out = Config::getResponse(ext_in);
+
+	strncpy_s(output, outputSize, context->marshal_as<const char*>(gcnew String(ext_out)), _TRUNCATE);
+	delete context;
 }

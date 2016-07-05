@@ -1,8 +1,9 @@
 _this spawn {
 	_server_functions = _this select 2;
 	
-	waitUntil {!isNil "BASE_var_FUNCTIONLIST"};
+	waitUntil {!isNil "BASE_var_INITORDER"};
 	
+	diag_log "<PluginManager>: Starting server";
 	
 	_fnclist = [];
 	_cfg = configFile >> "Plugins";
@@ -22,8 +23,9 @@ _this spawn {
 		};
 	} forEach BASE_var_INITORDER;
 	
-	_fnclist call BASE_fnc_setupEvents;
+	[_fnclist] call BASE_fnc_setupEvents;
 	
+	diag_log "<PluginManager>: Starting plugins...";
 	{
 		if((toLower(_x) find "initserver") != -1) then {
 			[] spawn (missionNamespace getVariable [_x,{DIAG_LOG "FAILED TO FIND FUNCTION";}]);

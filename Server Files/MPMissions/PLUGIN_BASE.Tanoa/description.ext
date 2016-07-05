@@ -1,0 +1,54 @@
+author = "DesolationREDUX";
+enableDebugConsole = 1;
+onLoadName = "Desolation";
+onLoadMission = "Desolation Redux";
+joinUnassigned = false;
+disabledAI = true;
+disableChannels[]={0,2,6};
+corpseManagerMode = 3;
+respawnDialog = 0;
+respawn = 3;
+respawnDelay = 70;
+class Header
+{
+	gameType = RPG;
+	minPlayers = 1;
+	maxPlayers = 60;
+};
+
+wreckLimit = 3000;
+wreckRemovalMinTime = 5000;
+wreckRemovalMaxTime = 5000;
+corpseLimit = 1000;
+corpseRemovalMinTime = 20;
+corpseRemovalMaxTime = 25;
+debriefing = 0;
+
+
+showHUD[] = {
+	true,	// Scripted HUD (same as showHUD command)
+	false,	// Vehicle + soldier info
+	false,	// Vehicle radar [HIDDEN]
+	false,	// Vehicle compass [HIDDEN]
+	false,	// Tank direction indicator
+	true,	// Commanding menu
+	false,	// Group Bar
+	true	// HUD Weapon Cursors
+};
+
+
+class CfgFunctions
+{
+	class PluginMaster {
+		tag = "BASE";
+		class Functions {
+			file = "PluginMaster";
+			class init {};
+			class receiveFunctions {};
+			class receiveProgressData {};
+			class timeoutCheck {};
+			class start {};
+			class addEvents {};
+		};
+	};
+};
