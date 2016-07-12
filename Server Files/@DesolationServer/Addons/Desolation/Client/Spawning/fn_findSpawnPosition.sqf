@@ -3,7 +3,7 @@
 	by Kegan
 */
 
-params["_regionData",["_verticle",false]];
+params["_regionData",["_east",false],["_flip",false]];
 private["_spawnPos","_minX","_minY","_maxX","_maxY","_randomX","_randomY","_jDist","_cJDist","_pos","_others"];
 
 _spawnPos = [];
@@ -15,8 +15,11 @@ _maxY = ((_regionData select 1) select 1);
 
 scopeName "exitSpawn";
 
+_multiplier = 1;
+if(_flip) then {_multiplier = -1;};
+
+0 cutText ["Finding a safe place to spawn","BLACK FADED",2];
 while{true} do {
-	0 cutText ["Finding a safe place to spawn","BLACK FADE",0];
 	_randomX = _minX + random(_maxX - _minX);
 	_randomY = _minY + random(_maxY - _minY);
 
@@ -24,19 +27,19 @@ while{true} do {
 	_cJDist = false;
 	for "_i" from 1 to 2 do {
 		while{surfaceIsWater [_randomX,_randomY]} do {
-			if(!_verticle) then {
-				_randomY = _randomY + _jDist;
+			if(!_east) then {
+				_randomY = _randomY + (_jDist*_multiplier);
 			} else {
-				_randomX = _randomX - _jDist;
+				_randomX = _randomX - (_jDist*_multiplier);
 			};
 			_cJDist = true;
 		};
 		if(_cJDist) then {_jDismt = _jDist / 2; _cJDist = false;};
 		while{!((getTerrainHeightASL [_randomX,_randomY]) < 1)} do {
-			if(!_verticle) then {
-				_randomY = _randomY - _jDist;
+			if(!_east) then {
+				_randomY = _randomY - (_jDist*_multiplier);
 			} else {
-				_randomX = _randomX + _jDist;
+				_randomX = _randomX + (_jDist*_multiplier);
 			};
 			_cJDist = true;
 		};

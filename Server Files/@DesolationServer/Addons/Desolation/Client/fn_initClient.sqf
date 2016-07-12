@@ -3,7 +3,7 @@
 	By Kegan
 */
 
-0 cutText ["","BLACK FADE",0];
+0 cutText ["","BLACK FADED",2];
 0 fadeSound 0;
 0 fadeMusic 0;
 

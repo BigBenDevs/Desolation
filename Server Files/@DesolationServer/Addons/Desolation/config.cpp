@@ -22,11 +22,17 @@ class CfgFunctions
 			class findSpawnPosition {};
 			class onRegionSelected {};
 			class freshSpawn {};
-			class finishSpawn {};
-			class waitForSpawnUI {};
-			
+			class finishSpawn {};			
+			class showRegionNotification {};			
 		};
-		class Client {
+		class Client_Functions
+		{
+			file = "Desolation\Client\Functions";
+			isclient = 1;
+			class infoText {};
+		};
+		class Client 
+		{
 			file = "Desolation\Client";
 			isclient = 1;
 			class initClient {};
