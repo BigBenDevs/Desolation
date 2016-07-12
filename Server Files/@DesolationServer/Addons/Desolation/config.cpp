@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class AntiSideChat {};
+	class Desolation {};
 };
 class Plugins
 {
