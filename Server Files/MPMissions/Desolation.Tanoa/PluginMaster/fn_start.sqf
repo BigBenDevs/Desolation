@@ -1,4 +1,7 @@
 disableUserInput false;
+
+call BASE_fnc_initEventHandlers;
+
 {
 	if((toLower(_x) find "initclient") != -1) then {
 		[] spawn (missionNamespace getVariable [_x,{DIAG_LOG "FAILED TO FIND FUNCTION";}]);

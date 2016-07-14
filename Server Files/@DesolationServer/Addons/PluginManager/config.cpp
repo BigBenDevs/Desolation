@@ -41,6 +41,9 @@ class CfgFunctions {
 			isclient = 1;
 			file = "PluginManager\Client";
 			class getCfgValue {};
+			class addEventHandler {};
+			class removeEventHandler {};
+			class initEventHandlers {};
 		};
 	};
 };
