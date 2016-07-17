@@ -26,7 +26,8 @@ binarizationWanted=0;
 addons[]=
 {
 	"A3_Ui_F",
-	"A3_Characters_F"
+	"A3_Characters_F",
+	"CAWheeled2_MMT"
 };
 class AddonsMetaData
 {
