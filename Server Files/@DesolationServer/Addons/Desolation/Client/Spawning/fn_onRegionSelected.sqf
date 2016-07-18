@@ -45,5 +45,5 @@ _isEast = if(_region isEqualTo _east_region) then {true} else {false};
 _flip = if(_region isEqualTo _north_region) then {true} else {false};
 _spawnPos = [_region,_isEast,_flip] call DS_fnc_findSpawnPosition;
 player setVariable ["ReadyToSpawn",true,true];
-[player,_spawnPos] remoteExec ["DS_fnc_requestSpawn",2];
+[player,_spawnPos] remoteExec ["DS_fnc_requestFreshSpawn",2];
 0 cutText ["Waiting to spawn...","BLACK FADED",2];

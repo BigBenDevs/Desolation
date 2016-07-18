@@ -1,14 +1,12 @@
 /*
-	Client spawn request handler
+	
+
 */
-params["_client","_location"];
 
-if !(_client getVariable ["ReadyToSpawn",false]) exitWith {};
+//--- player is requesting to spawn in, determine how they should do it
+_playerObj = _this select 0;//type of for handler
+_playerUID = getPlayerUID _playerObj;
 
-_unit = (createGroup CIVILIAN) createUnit [typeof _client, _location, [],0, "NONE"];
-_unit allowDamage false;
-_unit hideObjectGlobal true;
-[_unit] call DS_fnc_setupLoadout;
-_unit hideObjectGlobal false;
-_unit allowDamage true;
-[_unit] remoteExecCall ["DS_fnc_finishSpawn",_client];
+
+
+["joinedPlayerCheck",_playerUID, "DS_fnc_dbOnSpawnResponse",[_playerObj]] call DS_fnc_dbRequest; //--- send request to database

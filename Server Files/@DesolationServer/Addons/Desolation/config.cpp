@@ -24,7 +24,7 @@ class CfgFunctions
 			class onRegionSelected {};
 			class freshSpawn {};
 			class finishSpawn {};			
-			class showRegionNotification {};			
+			class showRegionNotification {};
 		};
 		class Client_Functions
 		{
@@ -39,9 +39,17 @@ class CfgFunctions
 			class initClient {};
 		};
 		//--- server functions
+		class Server_Database {
+			file = "Desolation\Server\Database";
+			isserver = 1;
+			class dbRequest {};
+		};
 		class Server_Players {
 			file = "Desolation\Server\Players";
 			isserver = 1;
+			class dbLoadPlayerResponse {};
+			class dbOnSpawnResponse {};
+			class requestFreshSpawn {};
 			class requestSpawn {};
 			class setupLoadout {};
 		};
