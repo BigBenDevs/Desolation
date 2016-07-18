@@ -92,6 +92,7 @@ class CfgVehicleSpawns {
 			locations[] = {{3.64514,3.64111,-1.39313}};
 			directions[] = {74.936};
 		};
+		//--- todo: test (removed from list)
 		class Land_Shed_06_F { 
 			locations[] = {{2.33594,-1.5708,-1.215},{0.574951,3.30811,-1.215}};
 			directions[] = {240.455,305.884};
@@ -120,6 +121,7 @@ class CfgVehicleSpawns {
 			locations[] = {{-2.76379,2.68311,-1.46458}};
 			directions[] = {178.493};
 		};
+		//--- todo: test removed
 		class Land_MetalShelter_02_F { 
 			locations[] = {{-3.0094,6.31982,-2.53849},{-7.5896,4.13184,-2.58269}};
 			directions[] = {359.991,178.967};
@@ -128,6 +130,7 @@ class CfgVehicleSpawns {
 			locations[] = {{-6.66699,2.45654,-2.40688},{-5.28308,6.86328,-2.44445}};
 			directions[] = {269.099,91.9652};
 		};
+		//--- TODO: test removed
 		class Land_MetalShelter_01_F { 
 			locations[] = {{4.56799,-5.29004,-1.56836},{4.73572,-2.22607,-1.56836},{4.77979,1.12451,-1.56836},{4.92883,4.04102,-1.56836}};
 			directions[] = {87.6316,48.0039,113.241,270.58};
@@ -152,9 +155,10 @@ class CfgVehicleSpawns {
 			locations[] = {{1.24805,-10.1792,-4.38337},{2.22461,-10.3315,-4.42472},{3.02271,-10.3169,-4.46243},{3.79883,-10.2437,-4.41579}};
 			directions[] = {105.568,110.874,109.866,113.647};
 		};
+		//--- todo: test fix
 		class Land_WoodenShelter_01_F { 
-			locations[] = {{-2.729,3.7666,-1.12281}};
-			directions[] = {12.8402};
+			locations[] = {{-0.422852,0.0537109,-1.11249}};
+			directions[] = {176.774};
 		};
 		class Land_Shop_City_01_F { 
 			locations[] = {{-2.70569,-3.08887,-5.17591}};
@@ -276,10 +280,10 @@ class CfgVehicleSpawns {
 			buildings[] = {"Land_SM_01_shelter_narrow_F","Land_MultistoryBuilding_01_F","Land_FuelStation_02_roof_F","Land_FuelStation_01_roof_F"};
 		};
 		class C_Van_01_transport_F {
-			buildings[] = {"Land_SM_01_shelter_narrow_F","Land_WarehouseShelter_01_F","Land_FuelStation_02_roof_F","Land_FuelStation_01_roof_F","Land_MetalShelter_02_F"};
+			buildings[] = {"Land_SM_01_shelter_narrow_F","Land_WarehouseShelter_01_F","Land_FuelStation_02_roof_F","Land_FuelStation_01_roof_F"};
 		};
 		class C_Van_01_fuel_F {
-			buildings[] = {"Land_SM_01_shelter_narrow_F","Land_FuelStation_02_roof_F","Land_MetalShelter_02_F","Land_FuelStation_01_roof_F"};
+			buildings[] = {"Land_SM_01_shelter_narrow_F","Land_FuelStation_02_roof_F","Land_FuelStation_01_roof_F"};
 		};
 		
 		//--- military
@@ -298,19 +302,19 @@ class CfgVehicleSpawns {
 			buildings[] = {"Land_Airport_01_terminal_F","Land_MultistoryBuilding_01_F","Land_FuelStation_02_roof_F","Land_FuelStation_02_workshop_F","Land_FuelStation_01_roof_F","Land_FuelStation_01_workshop_F","Land_House_Big_03_F","Land_GarageShelter_01_F"};
 		};
 		class C_Offroad_01_F {
-			buildings[] = {"Land_Airport_01_terminal_F","Land_SM_01_shelter_narrow_F","Land_MultistoryBuilding_01_F","Land_FuelStation_02_roof_F","Land_MetalShelter_02_F","Land_FuelStation_02_workshop_F","Land_FuelStation_01_roof_F","Land_FuelStation_01_workshop_F","Land_House_Big_03_F","Land_GarageShelter_01_F"};
+			buildings[] = {"Land_Airport_01_terminal_F","Land_SM_01_shelter_narrow_F","Land_MultistoryBuilding_01_F","Land_FuelStation_02_roof_F","Land_FuelStation_02_workshop_F","Land_FuelStation_01_roof_F","Land_FuelStation_01_workshop_F","Land_House_Big_03_F","Land_GarageShelter_01_F"};
 		};
 		class C_Hatchback_01_sport_F {
 			buildings[] = {"Land_Airport_01_terminal_F","Land_MultistoryBuilding_01_F","Land_FuelStation_02_roof_F","Land_FuelStation_02_workshop_F","Land_FuelStation_01_roof_F","Land_FuelStation_01_workshop_F","Land_House_Big_03_F","Land_GarageShelter_01_F"};
 		};
 		//--- quads
 		class C_Quadbike_01_F {
-			buildings[] = {"Land_WoodenShelter_01_F","Land_MetalShelter_01_F","Land_Shed_06_F","Land_Shed_07_F"};
+			buildings[] = {"Land_Shed_07_F"};
 		};
 		
 		//--- bikes
 		class MMT_Civ {
-			buildings[] = {"Land_Airport_02_terminal_F","Land_Warehouse_03_F","Land_Shop_City_07_F","Land_Shop_City_05_F","Land_MultistoryBuilding_04_F","Land_Shop_City_06_F","Land_Shop_City_01_F","Land_WoodenShelter_01_F","Land_Shop_City_02_F","Land_Shop_City_03_F","Land_MultistoryBuilding_03_F","Land_Hotel_01_F","Land_Addon_04_F","Land_Addon_03_F","Land_House_Small_04_F","Land_House_Small_05_F","Land_School_01_F","Land_House_Small_06_F"};
+			buildings[] = {"Land_Airport_02_terminal_F","Land_Warehouse_03_F","Land_Shop_City_07_F","Land_Shop_City_05_F","Land_MultistoryBuilding_04_F","Land_Shop_City_06_F","Land_Shop_City_01_F","Land_Shop_City_02_F","Land_Shop_City_03_F","Land_MultistoryBuilding_03_F","Land_Hotel_01_F","Land_Addon_04_F","Land_Addon_03_F","Land_House_Small_04_F","Land_House_Small_05_F","Land_School_01_F","Land_House_Small_06_F"};
 		};
 		
 		//--- plans

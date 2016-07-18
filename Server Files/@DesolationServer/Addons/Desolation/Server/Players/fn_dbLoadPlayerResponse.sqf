@@ -17,8 +17,8 @@ _playerInventoryData = []; //--- eventually add player inventory data
 
 diag_log format["<LOAD PLAYER RESPONSE INFO>: player Z is %1 in the databse, should be 0", _playerPositionZ];
 
-
-if(_playerUID != _playerDBUID) exitWith {diag_log "<LOAD PLAYER RESPONSE ERROR>: Bad UID response? This really should never happen?";};
+//--- temp removed (for testing)
+//if(_playerUID != _playerDBUID) exitWith {diag_log "<LOAD PLAYER RESPONSE ERROR>: Bad UID response? This really should never happen?";};
 
 
 
