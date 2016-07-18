@@ -7,7 +7,7 @@ params["_type","_identifier",["_callback",""],["_callbackParam",[]]];
 _prepOutgoing = format ["%1:%2",_type,_identifier];
 _preparedQuery = [0, DESOLATIONSERVERRANDOMID, _prepOutgoing] joinString ":";
 
-diag_log format["[DesolationDebug] ID:%1's prep:%2 and prepped:%3",_playerID,_prepOutgoing,_preparedQuery];
+diag_log format["[DesolationDebug] PrepQuery:%1 and preparedQ:%2",_prepOutgoing,_preparedQuery];
 switch(_type)do{
 	case "joinedPlayerCheck":{
 		_playerCheck = call compile ("extDB2" callExtension _preparedQuery);

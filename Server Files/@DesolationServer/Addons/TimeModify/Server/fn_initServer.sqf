@@ -4,22 +4,24 @@
 
 
 [] spawn {
-	_day = parseNumber (["DayMultiplier","TM"] call BASE_fnc_getCfgValue);
-	_night = parseNumber (["NightMultiplier","TM"] call BASE_fnc_getCfgValue);
+	_dayMult = parseNumber (["DayMultiplier","TM"] call BASE_fnc_getCfgValue);
+	_dayStart = parseNumber (["DayTimeStart","TM"] call BASE_fnc_getCfgValue);
+	_nightMult = parseNumber (["NightMultiplier","TM"] call BASE_fnc_getCfgValue);
+	_nightStart = parseNumber (["NightTimeStart","TM"] call BASE_fnc_getCfgValue);
 	_enabled = (["Enabled","TM"] call BASE_fnc_getCfgValue);
 
 	if !(toLower(_enabled) isEqualTo "true") exitWith {};
 	
-	if(daytime > 19 || daytime < 6) then {
-		setTimeMultiplier _night;
+	if(daytime > _nightStart || daytime < _dayStart) then {
+		setTimeMultiplier _nightMult;
 	} else {
-		setTimeMultiplier _day;
+		setTimeMultiplier _dayMult;
 	};
 	
 	while{true} do {
-		waitUntil{uiSleep 30; (daytime > 19 || daytime < 6)};
-		setTimeMultiplier _night;
-		waitUntil{uiSleep 30; !(daytime > 19 || daytime < 6) };
-		setTimeMultiplier _day;
+		waitUntil{uiSleep 30; (daytime > _nightStart || daytime < _dayStart)};
+		setTimeMultiplier _nightMult;
+		waitUntil{uiSleep 30; !(daytime > _nightStart || daytime < _dayStart) };
+		setTimeMultiplier _dayMult;
 	};
 };
