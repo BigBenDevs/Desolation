@@ -22,7 +22,7 @@ switch(_type)do{
 	};
 	case "loadMyPlayerStats":{
 		_loadPlayer = call compile ("extDB2" callExtension _preparedQuery);
-		_loadPlayer = ["765123456789","MusTanG",true,0.90,13124,5625,0]; // TEMP
+		_loadPlayer = ["765123456789","MusTanG",0.90,13124,5625,0]; // TEMP
 		[_loadPlayer,_callbackParam] call (missionNamespace getVariable [_callback,{diag_log "<REQUEST ERROR>: callback not defined?";}]); //["ds_fnc_receivePlayerData",_player];
 		//get data, create player, place them in their spot
 		//send this info to the client for processing

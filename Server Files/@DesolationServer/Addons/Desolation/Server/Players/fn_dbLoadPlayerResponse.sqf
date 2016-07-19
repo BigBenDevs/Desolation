@@ -3,16 +3,15 @@
 params["_data","_params"];
 
 _playerObj = _params select 0;
-//["765123456789","MusTanG",true,0.90,13124,5625,0];
+//["765123456789","MusTanG",0.90,13124,5625,0];
 _playerUID = getplayeruid _playerObj;
 
 _playerDBUID = _data select 0;
 _lastName = _data select 1;
-_wasPlayerAlive = _data select 2; //--- this should be removed, player alive check will just be if the player has an entry in the "alivePlayer" table
-_playerHealth = _data select 3; //--- this will eventually be an array containing hitPoint information
-_playerPositionX = _data select 4; 
-_playerPositionY = _data select 5;
-_playerPositionZ = _data select 6; //--- this should always be 0,just to make sure we will log it & sset it to 0
+_playerHealth = _data select 2; //--- this will eventually be an array containing hitPoint information
+_playerPositionX = _data select 3; 
+_playerPositionY = _data select 4;
+_playerPositionZ = _data select 5; //--- this should always be 0,just to make sure we will log it & sset it to 0
 _playerInventoryData = []; //--- eventually add player inventory data
 
 diag_log format["<LOAD PLAYER RESPONSE INFO>: player Z is %1 in the databse, should be 0", _playerPositionZ];
